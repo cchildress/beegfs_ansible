@@ -1,0 +1,24 @@
+[beegfs-nodes]
+node-01 ansible_host=
+node-02 ansible_host=
+node-03 ansible_host=
+node-04 ansible_host=
+node-05 ansible_host=
+
+[beegfs-mgmtd]
+node-01
+
+[beegfs-utils:children]
+beegfs-nodes
+
+[beegfs-meta:children]
+beegfs-nodes
+
+[beegfs-storage:children]
+beegfs-nodes
+
+[beegfs-client:children]
+beegfs-nodes
+
+[all:vars]
+ansible_user=ubuntu

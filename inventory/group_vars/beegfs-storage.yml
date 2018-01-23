@@ -1,0 +1,4 @@
+---
+
+beegfs_storage_use_mount: True
+beegfs_storage_block_dev: /dev/xvdc

@@ -1,0 +1,18 @@
+---
+
+- name: Install BeeGFS public key
+  apt_key:
+    url: "{{ beegfs_apt_key }}"
+    state: present
+  tags:
+    - beegfs
+    - beegfs-repos
+
+- name: Install BeeGFS repo
+  apt_repository:
+    repo: "{{ beegfs_repo_data }}"
+    state: present
+    filename: 'beegfs'
+  tags:
+    - beegfs
+    - beegfs-repos

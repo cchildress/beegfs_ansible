@@ -1,0 +1,4 @@
+---
+
+beegfs_apt_key: https://www.beegfs.io/release/latest-stable/gpg/DEB-GPG-KEY-beegfs
+beegfs_repo_data: "deb [arch=amd64] http://www.beegfs.io/release/beegfs_6 deb9 non-free"

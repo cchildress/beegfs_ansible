@@ -1,0 +1,14 @@
+---
+
+- name: Format BeeGFS storage block device
+  filesystem:
+    dev: "{{ beegfs_storage_block_dev }}"
+    fstype: xfs
+    opts: "-L beegfs-data"
+
+- name: Mount BeeGFS data volume
+  mount:
+    path: "{{ beegfs_storage_dir }}"
+    src: "{{ beegfs_storage_block_dev }}"
+    fstype: xfs
+    state: mounted
