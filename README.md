@@ -1,5 +1,5 @@
-# BeeG FS Ansible
-These playbooks set up a BeeG FS cluster on Debian based Linux nodes. It has been tested on Ubuntu 16.04.
+# BeeGFS Ansible
+These playbooks set up a BeeGFS cluster on Debian based Linux nodes. It has been tested on Ubuntu 16.04.
 
 ## Setup
 
@@ -13,12 +13,12 @@ These playbooks set up a BeeG FS cluster on Debian based Linux nodes. It has bee
 Edit `inventory/hosts` to include the connection parameters for your nodes. If you have DNS set up you can probably remove the `ansible_host` information.
 
 You should assign nodes to the following Ansible groups:
-* beegfs-nodes - All nodes that will participate in BeeG FS (clients and servers).
+* beegfs-nodes - All nodes that will participate in BeeGFS (clients and servers).
 * beegfs-mgmtd - The node that will run the management agent.
-* beegfs-utils - All nodes that should have the BeeG FS utilities installed (defaults to all nodes).
-* beegfs-meta - All nodes that will run the BeeG FS metadata service (defaults to all nodes).
-* beegfs-storage - All nodes that will run the BeeG FS storage service (defaults to all nodes).
-* beegfs-client - All nodes that will have a BeeG FS mount point (defaults to all nodes).
+* beegfs-utils - All nodes that should have the BeeGFS utilities installed (defaults to all nodes).
+* beegfs-meta - All nodes that will run the BeeGFS metadata service (defaults to all nodes).
+* beegfs-storage - All nodes that will run the BeeGFS storage service (defaults to all nodes).
+* beegfs-client - All nodes that will have a BeeGFS mount point (defaults to all nodes).
 
 ### Configure group variables
 * `inventory/group_vars/beegfs-nodes.yml` - `beegfs_mgmtd_host`: Sets the IP or DNS name of the management node. Currently this assumes the eth0 address of the management node is correct.
@@ -26,11 +26,11 @@ You should assign nodes to the following Ansible groups:
 * `inventory/group_vars/beegfs-meta.yml`  - `beegfs_meta_block_dev`: The block device to format if `beegfs_meta_use_mount` is set.
 * `inventory/group_vars/beegfs-storage.yml` - `beegfs_storage_use_mount`: Whether to format a block device for the data storage or not.
 * `inventory/group_vars/beegfs-storage.yml` - `beegfs_storage_block_dev`: The block device to format if `beegfs_storage_use_mount` is set.
-* `inventory/group_vars/beegfs-client.yml` - `beegfs_mount_dir`: The mount path for the BeeG FS client.
+* `inventory/group_vars/beegfs-client.yml` - `beegfs_mount_dir`: The mount path for the BeeGFS client.
 
 ### Other important variables
-* `beegfs_apt_key`: The URL of the BeeG FS apt GPG key.
-* `beegfs_repo_data`: The line to put in a sources.list file. This is where you set the BeeG FS major version number.
+* `beegfs_apt_key`: The URL of the BeeGFS apt GPG key.
+* `beegfs_repo_data`: The line to put in a sources.list file. This is where you set the BeeGFS major version number.
 * `beegfs_mgmtd_dir`: Where to store management agent data.
 * `beegfs_meta_dir`: Where to store metadata.
 * `beegfs_storage_dir`: Where to store block storage.
@@ -38,7 +38,7 @@ You should assign nodes to the following Ansible groups:
 ## Running the playbooks
 To run a full deploy use `ansible-playbook -i inventoy/hosts playbooks/deploy-beegfs.yml`.
 
-To deploy only a specific part of BeeG FS you can use one of the `playbooks/deploy-beegfs-<name>.yml` plays instead.
+To deploy only a specific part of BeeGFS you can use one of the `playbooks/deploy-beegfs-<name>.yml` plays instead.
 
 ### Tags
 Every task has a `beegfs` tag to make this easier to integrate with a larger repository.
