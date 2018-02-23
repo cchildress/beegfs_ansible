@@ -1,7 +1,7 @@
 ---
 
 - name: Install BeeG FS client packages
-  apt:
+  package:
     name: "{{ item }}"
   with_items:
     - beegfs-helperd

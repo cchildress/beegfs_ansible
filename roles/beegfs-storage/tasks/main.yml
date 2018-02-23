@@ -1,7 +1,7 @@
 ---
 
 - name: Install beegfs-storage package
-  apt:
+  package:
     name: beegfs-storage
   tags:
     - beegfs

@@ -1,7 +1,7 @@
 ---
 
 - name: Install beegfs-meta package
-  apt:
+  package:
     name: beegfs-meta
   tags:
     - beegfs

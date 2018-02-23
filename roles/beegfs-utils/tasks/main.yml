@@ -1,7 +1,7 @@
 ---
 
 - name: Install beegfs-utils package
-  apt:
+  package:
     name: beegfs-utils
   tags:
     - beegfs

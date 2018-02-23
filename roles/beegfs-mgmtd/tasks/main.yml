@@ -1,7 +1,7 @@
 ---
 
 - name: Install beegfs-mgmtd package
-  apt:
+  package:
     name: beegfs-mgmtd
   tags:
     - beegfs
