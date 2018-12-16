@@ -1,0 +1,8 @@
+#!/bin/bash
+
+yaml_files=$(find . -name "*.yml")
+
+for file in ${yaml_files}; do
+  echo "${file}"
+  ansible-lint ${file} || exit 1
+done
